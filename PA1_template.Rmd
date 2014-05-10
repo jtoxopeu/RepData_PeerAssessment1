@@ -15,7 +15,7 @@ A brief summary shows that there are some missing values ("NA") for the number o
 ## What is mean total number of steps taken per day?
 
 The dataset is divided up by date (61 days total), and the total number of steps per day is calculated, ignoring any missing values. A histogram of the daily totals is generated.
-```{r dailytotals, fig.height=4}
+```{r fig1, fig.height=4}
 s <- split(data, data$date)
 dailytotals <- sapply(s, function(x) sum(x[,"steps"], na.rm=TRUE))
 hist(dailytotals, breaks=50, 
@@ -34,7 +34,7 @@ For this individual, the mean total number of steps per day was `r meansteps`, a
 ## What is the average daily activity pattern?
 
 The dataset is divided up by 5-minute intervals (288 total), and the mean number of steps per interval is calculated, ignoring any missing values. A scatterplot of the average number of steps as a function of 5-minute intervals is generated.
-```{r avgdailypattern, fig.height=4}
+```{r fig2, fig.height=4}
 s2 <- split(data, data$interval)
 intervalavg <- sapply(s2, function(x) mean(x[,"steps"], na.rm=TRUE))
 int <- unique(data$interval) ## vector with one set of 5-min intervals
@@ -75,7 +75,7 @@ data3 <- data2[, c(1,3,4)] ## removes original "steps"" column (the one with NA 
 head(data3)
 ```
 Based on this modified dataset, a histogram of daily total steps is generated in a similar manner to the histogram above.
-```{r dailytotals-NA, fig.height=4}
+```{r fig3, fig.height=4}
 s3 <- split(data3, data3$date)
 dailytotals3 <- sapply(s3, function(x) sum(x[,"steps"]))
 hist(dailytotals3, breaks=50, 
@@ -125,7 +125,7 @@ data4 <- data.frame(cbind(avgsteps, int, daylabel))
 head(data4)
 ```
 A plot is generated from the above dataset, comparing average steps per 5-minute interval on weekdays vs. weekends.
-```{r weekdayweekend}
+```{r fig4}
 library(lattice)
 xyplot(avgsteps~int|daylabel, layout=c(1,2), type="l", xlab="5 minute interval", ylab="Number of steps")
 ```
