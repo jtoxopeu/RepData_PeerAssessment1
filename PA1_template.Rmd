@@ -32,7 +32,8 @@ meansteps
 mediansteps <- median(dailytotals)
 mediansteps
 ```
-For this individual, the mean total number of steps per day was `r meansteps`, and the median total number of steps per day was `r mediansteps`.
+For this individual, the mean total number of steps per day was `r meansteps`, and the median total number of steps per day was  
+`r mediansteps`.
 
 ## What is the average daily activity pattern?
 
@@ -100,7 +101,8 @@ to `r meansteps3`, while the median total number of steps per day changes to `r 
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
-To examine differences between activity on weekdays vs. weekends, a new vector is first created to classify each date as either "weekday" or "weekend".
+To examine differences between activity on weekdays vs. weekends, a new vector is first created to classify each date as either  
+"weekday" or "weekend".
 ```{r unnamed4}
 dates <- as.Date(data$date) ## Converts date column from into correct date format
 daytype <- weekdays(dates) ## Coverts dates to days of the week
