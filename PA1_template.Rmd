@@ -6,6 +6,7 @@ The following analysis examines patterns in activity of an anonymous individual 
 
 Prior to analysis, the data are first read into R from the workind directory, and the first six rows of the dataset are printed.
 ```{r loadingdata}
+setwd("C:/Users/Jantina/Documents/University/Coursera/5.ReproducibleResearch")
 data <- read.csv("activity.csv", stringsAsFactors=FALSE)
 head(data)
 ```
